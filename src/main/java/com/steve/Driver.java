@@ -16,8 +16,9 @@ public class Driver {
                     new OptionValued("-h", true)
                 )
         );
+
         boolean successfully_parsed = optionParser.parse();
-        HashMap<String, String> results = optionParser.getResults();
+        HashMap<String, String> results = optionParser.getResults().getRawMap();
 
         System.out.println(successfully_parsed);
         results.forEach((key, value) -> System.out.println("!" + key + "!, !" + value + "!"));

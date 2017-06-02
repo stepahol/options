@@ -1,7 +1,5 @@
 package com.steve.parsing;
 
-import java.util.HashMap;
-
 /**
  * Created by sholopkin on 29.05.2017.
  */
@@ -21,7 +19,7 @@ public class OptionAlternative extends Option {
     }
 
     @Override
-    public boolean parse(ParsingState state, HashMap<String, String> results) {
+    public boolean parse(ParsingState state, OptionResultSet results) {
         for (Option option : options) {
             if (option.canBeParsed(state)) {
                 return option.parse(state, results);

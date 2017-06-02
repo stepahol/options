@@ -9,16 +9,16 @@ public class OptionParser {
     private String[] args;
     private ParsingState state;
     private Option schema;
-    private HashMap<String, String> parsing_results;
+    private OptionResultSet parsing_results;
 
     public OptionParser(String[] args, Option schema) {
         this.args = args;
         state = new ParsingState(args);
         this.schema = schema;
-        parsing_results = new HashMap<>();
+        parsing_results = new OptionResultSet();
     }
 
-    public HashMap<String, String> getResults() { return parsing_results; }
+    public OptionResultSet getResults() { return parsing_results; }
 
     public boolean parse() { return schema.parse(state, parsing_results); }
 }

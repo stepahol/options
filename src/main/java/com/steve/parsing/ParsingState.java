@@ -3,7 +3,7 @@ package com.steve.parsing;
 /**
  * Created by sholopkin on 29.05.2017.
  */
-public class ParsingState {
+class ParsingState {
     private String[] args;
     private int counter;
 
