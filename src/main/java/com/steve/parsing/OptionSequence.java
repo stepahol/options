@@ -23,4 +23,9 @@ public class OptionSequence extends Option {
         }
         return successfully_parsed;
     }
+
+    @Override
+    public String toString() {
+        return getFunctionStringRepr("seq", options);
+    }
 }

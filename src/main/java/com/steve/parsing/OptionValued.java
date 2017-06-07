@@ -45,6 +45,17 @@ public class OptionValued extends Option {
         return false;
     }
 
+    @Override
+    public String toString() {
+        String function;
+        if (!is_flag) {
+            function = "val";
+        } else {
+            function = "flg";
+        }
+        return function + "(" + option_allowed + ")";
+    }
+
     private boolean isOption(String str) {
         return str.equals(option_allowed);
     }

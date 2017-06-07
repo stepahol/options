@@ -27,4 +27,9 @@ public class OptionAlternative extends Option {
         }
         return false;
     }
+
+    @Override
+    public String toString() {
+        return getFunctionStringRepr("alt", options);
+    }
 }
