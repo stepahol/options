@@ -1,5 +1,7 @@
 package com.steve.parsing;
 
+import com.steve.parsing.lexer.Lexer;
+
 import java.util.HashMap;
 
 /**
@@ -10,8 +12,13 @@ public class OptionParser {
     private ParsingState state;
     private Option schema;
     private OptionResultSet parsing_results;
+    
+    public OptionParser(String[] args, String schema_str) {
+        Option schema = Lexer.getOptionSchemaFromString(schema_str);
+        init(args, schema);
+    }
 
-    public OptionParser(String[] args, Option schema) {
+    private void init(String[] args, Option schema) {
         this.args = args;
         state = new ParsingState(args);
         this.schema = schema;

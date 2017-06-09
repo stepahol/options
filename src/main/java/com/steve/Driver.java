@@ -9,8 +9,8 @@ import java.util.List;
 
 public class Driver {
     public static void main(String[] args) {
-//        options(args);
-        parser(args);
+        options(args);
+//        parser(args);
     }
 
     private static void parser(String[] args) {
@@ -24,14 +24,7 @@ public class Driver {
     }
 
     private static void options(String[] args) {
-        Option option_scheme = new OptionAlternative(
-                new OptionSequence(
-                        new OptionValued("-d"),
-                        new OptionValued("-m")
-                ),
-                new OptionValued("-h", true)
-        );
-        OptionParser optionParser = new OptionParser(args,option_scheme);
+        OptionParser optionParser = new OptionParser(args, "alt(seq(val(-d), val(-m)), flg(-h))");
 
         boolean successfully_parsed = optionParser.parse();
         HashMap<String, String> results = optionParser.getResults().getRawMap();

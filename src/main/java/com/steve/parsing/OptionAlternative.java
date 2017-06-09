@@ -1,12 +1,17 @@
 package com.steve.parsing;
 
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * Created by sholopkin on 29.05.2017.
  */
 public class OptionAlternative extends Option {
-    private Option[] options;
+    private List<Option> options;
 
-    public OptionAlternative(Option ... options) { this.options = options; }
+    public OptionAlternative(Option ... options) { this.options = Arrays.asList(options); }
+
+    public OptionAlternative(List<Option> options) { this.options = options; }
 
     @Override
     public boolean canBeParsed(ParsingState state) {
