@@ -1,5 +1,6 @@
 package com.steve.parsing.lexer;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -15,8 +16,8 @@ public class FunctionArgsContainer {
     }
 
     public FunctionArgsContainer() {
-        this.function = null;
-        this.arguments = null;
+        this.function = "";
+        this.arguments = new ArrayList<>();
     }
 
     public String getFunction() { return function; }

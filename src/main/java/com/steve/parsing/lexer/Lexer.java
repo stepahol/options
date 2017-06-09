@@ -10,8 +10,6 @@ import java.util.regex.Pattern;
  * Created by Степан on 08.06.2017.
  */
 public class Lexer {
-    private static final String allowedFunctions = "val|flg|seq|mix|alt";
-
     public static void parseString(String str) {
         String line = "seq(val(-d), val(-m))";
         FunctionArgsContainer container = getFunctionArguments(line);
@@ -22,7 +20,7 @@ public class Lexer {
     }
 
     public static FunctionArgsContainer getFunctionArguments(String line) {
-        String regex = "(" + allowedFunctions + ")\\(([\\(\\),\\s\\w\\d-]+)\\)";
+        String regex = "(\\w+)\\(([\\(\\),\\s\\w\\d-]+)\\)";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(line);
         if (matcher.find()) {
