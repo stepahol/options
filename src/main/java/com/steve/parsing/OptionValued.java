@@ -24,7 +24,7 @@ public class OptionValued extends Option {
     }
 
     @Override
-    public boolean parse(ParsingState state, OptionResultSet results) {
+    public void parse(ParsingState state, OptionResultSet results) {
         String option = state.getCurrArg();
         String value = state.getNextArg();
 
@@ -32,17 +32,17 @@ public class OptionValued extends Option {
             if (isOption(option) && isValue(value)) {
                 results.putOption(option, value);
                 state.next(2);
-                return true;
+            } else {
+                throw new RuntimeException("Error while parsing options");
             }
         } else {
             if (isOption(option) && !isValue(value)) {
                 results.putOption(option);
                 state.next(1);
-                return true;
+            } else {
+                throw new RuntimeException("Error while parsing options");
             }
         }
-
-        return false;
     }
 
     @Override

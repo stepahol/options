@@ -2,8 +2,6 @@ package com.steve.parsing;
 
 import com.steve.parsing.lexer.Lexer;
 
-import java.util.HashMap;
-
 /**
  * Created by sholopkin on 29.05.2017.
  */
@@ -16,6 +14,7 @@ public class OptionParser {
     public OptionParser(String[] args, String schema_str) {
         Option schema = Lexer.getOptionSchemaFromString(schema_str);
         init(args, schema);
+        parse();
     }
 
     private void init(String[] args, Option schema) {
@@ -27,5 +26,5 @@ public class OptionParser {
 
     public OptionResultSet getResults() { return parsing_results; }
 
-    public boolean parse() { return schema.parse(state, parsing_results); }
+    private void parse() { schema.parse(state, parsing_results); }
 }

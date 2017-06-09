@@ -7,7 +7,7 @@ import java.util.List;
  */
 public abstract class Option {
     public abstract boolean canBeParsed(ParsingState state);
-    public abstract boolean parse(ParsingState state, OptionResultSet results);
+    public abstract void parse(ParsingState state, OptionResultSet results);
 
     protected static String getFunctionStringRepr(String function, List<Option> options) {
         StringBuilder result = new StringBuilder();

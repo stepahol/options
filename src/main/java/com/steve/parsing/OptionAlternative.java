@@ -24,13 +24,12 @@ public class OptionAlternative extends Option {
     }
 
     @Override
-    public boolean parse(ParsingState state, OptionResultSet results) {
+    public void parse(ParsingState state, OptionResultSet results) {
         for (Option option : options) {
             if (option.canBeParsed(state)) {
-                return option.parse(state, results);
+                option.parse(state, results);
             }
         }
-        return false;
     }
 
     @Override

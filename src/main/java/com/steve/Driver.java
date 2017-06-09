@@ -25,11 +25,7 @@ public class Driver {
 
     private static void options(String[] args) {
         OptionParser optionParser = new OptionParser(args, "alt(seq(val(-d), val(-m)), flg(-h))");
-
-        boolean successfully_parsed = optionParser.parse();
         HashMap<String, String> results = optionParser.getResults().getRawMap();
-
-        System.out.println(successfully_parsed);
         results.forEach((key, value) -> System.out.println("!" + key + "!, !" + value + "!"));
     }
 }

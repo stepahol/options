@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
 /**
  * Created by sholopkin on 09.06.2017.
  */
-public class LexerTest extends TestCase {
+public class LexerTest extends Assert {
     @Test
     public void testGetFunctionArguments_argWithoutNesting() {
         String line = "sum(a, b)";
@@ -99,5 +99,17 @@ public class LexerTest extends TestCase {
         assertEquals(arguments.size(), 2);
         assertEquals(arguments.get(0), "f (     a    )");
         assertEquals(arguments.get(1), "g(     b    )");
+    }
+
+    @Test
+    public void testGetFunctionArgument_passeWithNestedFunctions() {
+        String line = "sum(f(g(a, b), h(c, d)), m(a,b))";
+        FunctionArgsContainer result = Lexer.getFunctionArguments(line);
+        String function = result.getFunction();
+        List<String> arguments = result.getArguments();
+        assertEquals(function, "sum");
+        assertEquals(arguments.size(), 2);
+        assertEquals(arguments.get(0), "f(g(a, b), h(c, d))");
+        assertEquals(arguments.get(1), "m(a,b)");
     }
 }

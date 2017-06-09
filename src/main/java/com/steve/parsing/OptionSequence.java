@@ -21,12 +21,10 @@ public class OptionSequence extends Option {
     }
 
     @Override
-    public boolean parse(ParsingState state, OptionResultSet results) {
-        boolean successfully_parsed = true;
+    public void parse(ParsingState state, OptionResultSet results) {
         for (Option option : options) {
-            successfully_parsed = successfully_parsed && option.parse(state, results);
+            option.parse(state, results);
         }
-        return successfully_parsed;
     }
 
     @Override
