@@ -87,10 +87,9 @@ public class Lexer {
         }
     }
 
-    private static boolean stringIsValid() {
+    private static boolean stringIsValid(String str) {
         String regex = "^[\\w\\d-,)(]*$";
-        Pattern pattern = Pattern.compile(regex);
-
+        return Pattern.compile(regex).matcher(str).matches();
     }
 
     private static List<String> splitWithoutParenthesis(String str) {
